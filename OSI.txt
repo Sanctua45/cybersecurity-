@@ -1,0 +1,77 @@
+## Understanding Open Systems Interconnection (OSI) Model
+
+The Open Systems Interconnection (OSI) model is a conceptual framework developed by the International Organization for Standardization (ISO) to describe how data is transmitted across a network. It serves as a **reference model**, meaning it doesn't represent a specific protocol stack but rather provides a **common language** for understanding network communication. 
+
+The model is often visualized as a **7-layer stack**, with each layer performing specific functions and interacting with the layers above and below it. Let's explore these layers:
+
+**1. Physical Layer:** Deals with the physical transmission of data bits across a physical medium like cables or wireless signals. It handles tasks like setting up the physical connection, transmitting raw data bits, and handling signal errors.
+
+**2. Data Link Layer:** Groups raw data bits into frames, adds error-detection mechanisms, and controls the flow of data between directly connected devices. It's responsible for ensuring reliable data transfer over the physical layer.
+
+**3. Network Layer:** Handles routing and addressing of data packets across networks. It determines the best path for data to travel between different networks and forwards packets accordingly. 
+
+**4. Transport Layer:** Provides reliable data transfer services between applications on different devices. It ensures complete and in-order delivery of data, even if the underlying network is unreliable.
+
+**5. Session Layer:** Establishes, manages, and terminates sessions between communicating applications. It's responsible for coordinating communication, such as data exchange and synchronization, between applications.
+
+**6. Presentation Layer:** Handles data formatting and encryption/decryption. It ensures that data is presented in a format understood by the receiving application, regardless of the underlying systems' differences.
+
+**7. Application Layer:** Provides network services directly to applications. This includes protocols like HTTP (web browsing), FTP (file transfer), and SMTP (email).
+
+While the OSI model isn't a direct representation of how any specific network protocol works, it offers several benefits:
+
+* **Standardization:** Provides a common language for discussing and troubleshooting network communication issues.
+* **Conceptualization:** Helps visualize the complex process of data transmission across different network layers.
+* **Troubleshooting:** Aids in identifying and isolating problems within specific layers of the network.
+
+It's important to remember that the OSI model is a **conceptual framework**, and real-world network protocols may not strictly adhere to this specific structure. However, understanding the OSI model remains valuable due to its ability to provide a clear and comprehensive understanding of the fundamental principles of network communication.
+
+
+def is_prime(num):
+  """
+  This function checks if a number is prime.
+
+  Args:
+      num: The number to check.
+
+  Returns:
+      True if the number is prime, False otherwise.
+  """
+  if num <= 1:
+    return False
+  for i in range(2, int(num**0.5) + 1):
+    if num % i == 0:
+      return False
+  return True
+
+def find_primes(lower, upper):
+  """
+  This function finds prime numbers within a given range.
+
+  Args:
+      lower: The lower bound of the range (inclusive).
+      upper: The upper bound of the range (inclusive).
+
+  Returns:
+      A list of prime numbers within the range.
+  """
+  prime_numbers = []
+  for num in range(lower, upper + 1):
+    if is_prime(num):
+      prime_numbers.append(num)
+  return prime_numbers
+
+# Get user input for the range
+lower_bound = int(input("Enter the lower bound: "))
+upper_bound = int(input("Enter the upper bound: "))
+
+# Find prime numbers within the range
+prime_numbers = find_primes(lower_bound, upper_bound)
+
+# Print the prime numbers
+if prime_numbers:
+  print("Prime numbers in the range", lower_bound, "to", upper_bound, "are:")
+  for num in prime_numbers:
+    print(num)
+else:
+  print("No prime numbers found in the range", lower_bound, "to", upper_bound)
